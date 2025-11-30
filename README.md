@@ -68,3 +68,55 @@ All state is stored in a simple session object so agents can share information.
 
 ```bash
 pip install -r requirements.txt
+        ┌──────────────────────────────┐
+        │      Input Dataset (CSV)     │
+        │     e.g., Bank Churn Data    │
+        └───────────────┬──────────────┘
+                        │
+                        ▼
+         ┌─────────────────────────────┐
+         │       Intake Agent          │
+         │ - load CSV                  │
+         │ - detect task type          │
+         │ - store metadata in session │
+         └──────────────┬──────────────┘
+                        │
+                        ▼
+         ┌─────────────────────────────┐
+         │          EDA Agent          │
+         │ - column types              │
+         │ - missing values            │
+         │ - target distribution       │
+         │ - EDA summary saved         │
+         └──────────────┬──────────────┘
+                        │
+                        ▼
+         ┌─────────────────────────────┐
+         │        Model Agent          │
+         │ - encode data               │
+         │ - train RandomForest        │
+         │ - log experiment            │
+         │ - update best_score         │
+         └──────────────┬──────────────┘
+                        │
+                        ▼
+         ┌─────────────────────────────┐
+         │       Planner Agent         │
+         │ - read experiments          │
+         │ - suggest new hyperparams   │
+         │ - loop additional training  │
+         └──────────────┬──────────────┘
+                        │
+                        ▼
+         ┌─────────────────────────────┐
+         │        Report Agent         │
+         │ - combine EDA + experiments │
+         │ - generate report.md        │
+         └──────────────┬──────────────┘
+                        │
+                        ▼
+        ┌────────────────────────────────┐
+        │          Final Output          │
+        │     Markdown report (report.md)│
+        └────────────────────────────────┘
+
