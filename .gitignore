@@ -1,0 +1,40 @@
+# Python venv
+.venv/
+env/
+venv/
+
+# Pycache
+__pycache__/
+*.py[cod]
+
+# Logs
+*.log
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Reports
+report.md
+*.html
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter Notebook autosaves
+*.ipynb~
+*AutoSave.ipynb
+
+# VS Code settings
+.vscode/
+.settings/
+
+# Temp files
+*.tmp
+*.swp
+*~
+
+
+
+data/
+datasets/
